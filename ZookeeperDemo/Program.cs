@@ -15,8 +15,9 @@ namespace ZookeeperDemo
         static void Main(string[] args)
         {
             ZooKeeper _zk;
+            string _serverAddr = ZkDemo_Settings.Default.ZkServerAddr;
 
-            _zk = new ZooKeeper("127.0.0.1:2181", TimeSpan.FromSeconds(5), new Watcher());
+            _zk = new ZooKeeper(_serverAddr, TimeSpan.FromSeconds(5), new Watcher());
        
                 var stat = _zk.Exists("/DemoV1", true);
 
